@@ -18,7 +18,7 @@ fi
 
 
 echo "1" > ./boot/mark
-sudo dpkg -i -B ./xinput-calibrator_0.7.5-1_armhf.deb
+sudo apt-get install xinput-calibrator -y
 sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 elif test "$var1" = "0" -a "$1" = "lite" ;then
