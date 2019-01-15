@@ -16,20 +16,6 @@ sudo apt-get install xserver-xorg-input-evdev
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
 fi
 
-if test "$j" = "retropie" ;then
-sudo cp -rf ./nes /home/pi/RetroPie/roms/
-
-sudo mkdir -p /usr/src/mk_arcade_joystick_rpi-0.1.5/
-sudo mkdir -p /etc/modprobe.d/
-sudo cp -a ./mk_arcade_joystick_rpi-master/* /usr/src/mk_arcade_joystick_rpi-0.1.5/
-export MKVERSION=0.1.5
-sudo -E dkms build -m mk_arcade_joystick_rpi -v 0.1.5
-sudo -E dkms install -m mk_arcade_joystick_rpi -v 0.1.5
-sudo cp -rf ./etc/modules /etc/modules
-sudo cp -rf ./etc/modprobe.d/joystick.conf /etc/modprobe.d/
-
-fi
-
 echo "1" > ./boot/mark
 sudo dpkg -i -B ./xinput-calibrator_0.7.5-1_armhf.deb
 sudo apt-get install cmake -y
